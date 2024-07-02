@@ -1,0 +1,44 @@
+<div class="container">
+    <div class="row mb-3 justify-content-center mt-5">
+        <div class="col-md-6 col-sm-12">
+            <div class="card rounded-2">
+                <div class="card-header">
+                    <div class="card-body">
+                        <form class="form justify-content-center" [formGroup]="loginForm">
+                            <div class="form-group">
+                                <label for="email_phone">email or phone</label>
+                                <input id="email_phone" name="email_phone" type="Email" class="form-control rounded-2"
+                                    placeholder="hager@gmail.com or 01010010" formControlName="email_phone"
+                                    [class.error]="loginForm.controls['email_phone'].dirty && loginForm.hasError('required','email_phone')" />
+                            </div>
+                            <small
+                                *ngIf="loginForm.controls['email_phone'].dirty && loginForm.hasError('required','email_phone')"
+                                class="text-danger">*Email or Phone is Required!</small>
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input id="password" type="password" name="password" class="form-control rounded-2"
+                                    placeholder="password" formControlName="password"
+                                    [class.error]="loginForm.controls['password'].dirty && loginForm.hasError('required','password')" />
+                            </div>
+                            <small
+                                *ngIf="loginForm.controls['password'].dirty && loginForm.hasError('required','password')"
+                                class="text-danger">*Password is Required!</small>
+
+                            <button (click)="login()" type="submit" class="btn btn-dark w-100 mt-4">
+                                Login
+                            </button>
+                        </form>
+                        <ul class="list-unstyled mb-3 text-center mt-3">
+                            <li>
+                                If you don't have acount
+                                <a routerLink="/register" class="link-dark">
+                                    Register Now
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
